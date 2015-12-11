@@ -19,6 +19,11 @@ namespace CloudinaryDotNet.Actions
             get { return m_publicIds; }
             set { m_publicIds = value; }
         }
+        
+        /// <summary>
+        /// The Resource Type [video,image,raw] to assign or remove
+        /// </summary>
+        public ResourceType ResourceType { get; set; }
 
         /// <summary>
         /// The tag name to assign or remove.
@@ -53,6 +58,7 @@ namespace CloudinaryDotNet.Actions
 
             AddParam(dict, "tag", Tag);
             AddParam(dict, "public_ids", PublicIds);
+            AddParam(dict, "resourcetype", Api.GetCloudinaryParam<ResourceType>(ResourceType));
             AddParam(dict, "command", Api.GetCloudinaryParam<TagCommand>(Command));
 
             return dict;
